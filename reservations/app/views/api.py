@@ -116,6 +116,9 @@ class ExternalAPIShowView(generics.GenericAPIView):
                     # Convert the price in Integer
                     price = float(price)
 
+                    if price == 0:
+                        bookable = False
+
                     data_filtered = {
                         'title': title,
                         'description': description,
@@ -138,7 +141,6 @@ class ExternalAPI(generics.ListAPIView):
     """"""  # TODO: Comments missing !
 
     queryset = ''
-    group_required = [u'Administrateur', u'Moderateur']
 
     def get(self, request, *args, **kwargs):
         """"""  # TODO: Comments missing !

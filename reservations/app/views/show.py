@@ -14,7 +14,7 @@ def show_list(request):
     """Render list of shows"""
 
     query = request.GET.get("query", None)  # use get GET.get to prevent error
-    shows = Show.objects.all()
+    shows = Show.objects.filter(bookable=True)
 
     if query is not None:  # if my query is not empty i change the way how the queryset is set
         shows = Show.objects.filter(title__icontains=query)
@@ -85,6 +85,9 @@ def update_show_external_api(request):
     for show in data:
         if show['description'] is None:
             show['description'] = 'N/D'
+
+        if show['price'] == 0:
+            show['bookable'] = False
 
         new_show = Show(
             title=show['title'],
