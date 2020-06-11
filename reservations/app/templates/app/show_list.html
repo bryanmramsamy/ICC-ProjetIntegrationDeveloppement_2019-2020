@@ -20,8 +20,8 @@
 
     <!-- hidden if you can't connect to the admin -->
     {% if request.user.is_staff %}
-        <a href="{% url 'ShowCrud' %}" class="btn btn-primary btn-sm m-1"> Ajouter un spéctacle </a> <!-- A mettre dans la nav bar-->
-        <a href="{% url 'ext-show' %}" class="btn btn-primary btn-sm m-1"> Mise à jour des spécracles avec une API</a>
+        <a href="{% url 'ShowCrud' %}" class="btn btn-primary btn-sm m-1"> Ajouter un spectacle </a> <!-- A mettre dans la nav bar-->
+        <a href="{% url 'ext-show' %}" class="btn btn-primary btn-sm m-1"> Mise à jour des spectacles avec une API</a>
     {% endif %}
 
 </div>
