@@ -28,6 +28,12 @@
             </ul>
         </div>
 
+    
+    {% for comment in comments %}
+        <p>{{ comment.user.username }} a commenté {{ comment.comment }}</p>
+    {% endfor %}
+        
+
     </div>
     <!-- /.row -->
 

@@ -6,7 +6,7 @@ from django.views.decorators.cache import cache_page
 from django.views.generic import ListView, TemplateView
 from django.urls import reverse
 
-from app.models.show import Show, Representation
+from app.models.show import Show, Representation, Comment
 from app.permissions.group import group_required
 
 
@@ -47,10 +47,12 @@ def show_detail_slug(request, slug):
 
     show = get_object_or_404(Show, slug=slug)
     representations = Representation.objects.filter(show=show.pk)
+    comments = Comment.objects.filter(show=show)
 
     context = {
         'show': show,
-        'representations': representations
+        'representations': representations,
+        'comments': comments
     }
     return render(request, 'app/show_detail.html', context)
 

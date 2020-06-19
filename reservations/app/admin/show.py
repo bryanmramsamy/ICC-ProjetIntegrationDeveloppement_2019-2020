@@ -3,7 +3,7 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from app.models import Representation, Show
+from app.models import Representation, Show, Comment
 
 
 class ShowResource(resources.ModelResource):
@@ -97,3 +97,5 @@ class RepresentationAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(Representation, RepresentationAdmin)
+
+admin.site.register(Comment)

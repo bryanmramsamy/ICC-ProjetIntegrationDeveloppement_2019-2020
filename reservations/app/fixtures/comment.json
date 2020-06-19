@@ -1,0 +1,29 @@
+[
+    {
+        "model": "app.comment",
+        "pk": 1,
+        "fields": {
+            "show": 6,
+            "comment": "Ceci est mon commentaire",
+            "user": 1
+        }
+    },
+    {
+        "model": "app.comment",
+        "pk": 2,
+        "fields": {
+            "show": 6,
+            "comment": "Ceci est mon commentaire 2",
+            "user": 1
+        }
+    },
+    {
+        "model": "app.comment",
+        "pk": 3,
+        "fields": {
+            "show": 6,
+            "comment": "Ceci est mon commentaire 3",
+            "user": 1
+        }
+    }
+]

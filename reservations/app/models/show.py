@@ -1,10 +1,13 @@
 import itertools
 
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 
 from app.models.location import Location
+
+
 
 
 class Show(models.Model):
@@ -121,3 +124,20 @@ class Representation(models.Model):
         """Return absolute url for Representation."""
 
         return reverse('representation_detail', kwargs={'pk': self.pk})
+
+
+class Comment(models.Model):
+
+    show = models.ForeignKey(Show, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.TextField()
+
+    # class Meta:
+    #     verbose_name = _("comment")
+    #     verbose_name_plural = _("comments")
+
+    # def __str__(self):
+    #     return self.name
+
+    # def get_absolute_url(self):
+    #     return reverse("comment_detail", kwargs={"pk": self.pk})
